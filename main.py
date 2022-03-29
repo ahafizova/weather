@@ -5,6 +5,10 @@ from PyQt5.QtCore import Qt
 import design
 
 
+API_key = 'd8f26124dbb3d62c82a9f08e27df4c02'    # example of a key
+                                                # you need to get your key on the website https://openweathermap.org/
+
+
 class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -20,7 +24,7 @@ class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         # city_name = 'Chelyabinsk,RU'
         city_name = self.lineEdit.text()
         self.lineEdit.setText('')
-        appid = 'd8f26124dbb3d62c82a9f08e27df4c02'
+        appid = API_key
         period = {'00': 'ночь', '06': 'утро', '12': 'день', '18': 'вечер'}
         r = requests.get('http://api.openweathermap.org/data/2.5/forecast',
                          params={'q': city_name, 'appid': appid,
